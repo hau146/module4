@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class DictionaryService {
+public class DictionaryService implements IDictionaryService{
     public String vocabularyConversion(String english){
         Map<String,String> stringMap = new HashMap<>();
         stringMap.put("dog","chó");
