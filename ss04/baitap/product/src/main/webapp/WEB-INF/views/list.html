@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<br>
+<p th:if="${mess}" th:text="${mess}"></p>
+<br>
+<a href="/product/create">Thêm sản phẩm</a>
+<br> <br>
+<table border="1px" style="border-collapse: collapse">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Mô tả</th>
+        <th>Nhà sản xuất</th>
+        <th>Xem sản phẩm</th>
+        <th>Sửa sản phẩm</th>
+        <th>Xóa sản phẩm</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product,loop : ${productList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${product.nameProduct}"></td>
+        <td th:text="${product.priceProduct}"></td>
+        <td th:text="${product.describeProduct}"></td>
+        <td th:text="${product.producer}"></td>
+        <td>
+            <a th:href="@{/product/detail/(id=${product.id})}">Xem</a>
+        </td>
+        <td>
+            <a th:href="@{/product/edit/(id=${product.id})}">Sửa</a>
+        </td>
+        <td>
+            <a th:href="@{/product/delete/(id=${product.id})}">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

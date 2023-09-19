@@ -7,6 +7,6 @@
 <body>
 <h1><%= "Hello World!" %></h1>
 <br/>
-<a href="/mail/home">xem mail</a>
+<a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>
