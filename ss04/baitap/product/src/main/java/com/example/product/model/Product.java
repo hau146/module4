@@ -1,6 +1,14 @@
 package com.example.product.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nameProduct;
     private double priceProduct;
@@ -12,6 +20,12 @@ public class Product {
 
     public Product(int id, String nameProduct, double priceProduct, String describeProduct, String producer) {
         this.id = id;
+        this.nameProduct = nameProduct;
+        this.priceProduct = priceProduct;
+        this.describeProduct = describeProduct;
+        this.producer = producer;
+    }
+    public Product(String nameProduct, double priceProduct, String describeProduct, String producer) {
         this.nameProduct = nameProduct;
         this.priceProduct = priceProduct;
         this.describeProduct = describeProduct;

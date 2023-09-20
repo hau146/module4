@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Title</title>
 </head>
 <body>
@@ -9,7 +9,7 @@
 <br>
 <form th:object="${product}" th:action="@{/product/edit}" method="post">
     <label>ID</label>
-    <input th:field="*{id}"> <br>
+    <input readonly th:field="*{id}"> <br>
     <label>Tên sản phẩm</label>
     <input th:field="*{nameProduct}"> <br>
     <label>Giá</label>

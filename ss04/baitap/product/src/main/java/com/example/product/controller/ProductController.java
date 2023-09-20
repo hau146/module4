@@ -46,7 +46,7 @@ public class ProductController {
         redirectAttributes.addFlashAttribute("mess", "Thêm thành công");
         return "redirect:/product/list";
     }
-    @GetMapping("/edit/")
+    @GetMapping("/edit")
     public String showEdit(@RequestParam int id, Model model){
         Product product = productService.finById(id);
         model.addAttribute("product",product);
@@ -60,9 +60,9 @@ public class ProductController {
         return "redirect:/product/list";
     }
     @GetMapping("delete")
-    public String delete(@RequestParam int id,
+    public String delete(@RequestParam int idDelete,
                          RedirectAttributes redirectAttributes){
-        productService.delete(id);
+        productService.delete(idDelete);
         redirectAttributes.addFlashAttribute("mess", "xóa thành công");
         return "redirect:/product/list";
     }
