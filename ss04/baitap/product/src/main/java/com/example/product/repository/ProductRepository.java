@@ -23,20 +23,30 @@ public class ProductRepository implements IProductRepository {
 
     @Transactional
     @Override
-    public void create(Product product) {
-        entityManager.persist(product);
+    public boolean create(Product product) {
+        try {
+            entityManager.persist(product);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Transactional
     @Override
-    public void update(Product product) {
-        Product productEntity = finById(product.getId());
-        productEntity.setId(product.getId());
-        productEntity.setNameProduct(product.getNameProduct());
-        productEntity.setPriceProduct(product.getPriceProduct());
-        productEntity.setDescribeProduct(product.getDescribeProduct());
-        productEntity.setProducer(product.getProducer());
-        entityManager.merge(productEntity);
+    public boolean update(Product product) {
+        try {
+            Product productEntity = finById(product.getId());
+            productEntity.setId(product.getId());
+            productEntity.setNameProduct(product.getNameProduct());
+            productEntity.setPriceProduct(product.getPriceProduct());
+            productEntity.setDescribeProduct(product.getDescribeProduct());
+            productEntity.setProducer(product.getProducer());
+            entityManager.merge(productEntity);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -46,19 +56,13 @@ public class ProductRepository implements IProductRepository {
 
     @Transactional
     @Override
-    public void delete(int id) {
-        Product product = finById(id);
-        entityManager.remove(product);
-    }
-
-    @Override
-    public List<Product> searchByName(String nameProduct) {
-        List<Product> products = new ArrayList<>();
-//        for (int i = 0; i < productList.size(); i++) {
-//            if (productList.get(i).getNameProduct().contains(nameProduct)) {
-//                products.add(productList.get(i));
-//            }
-//        }
-        return products;
+    public boolean delete(int id) {
+        try {
+            Product product = finById(id);
+            entityManager.remove(product);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

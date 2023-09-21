@@ -16,13 +16,13 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void create(Product product) {
-        productRepository.create(product);
+    public boolean create(Product product) {
+        return productRepository.create(product);
     }
 
     @Override
-    public void update(Product product) {
-        productRepository.update(product);
+    public boolean update(Product product) {
+        return productRepository.update(product);
     }
 
     @Override
@@ -31,12 +31,7 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public void delete(int id) {
-        productRepository.delete(id);
-    }
-
-    @Override
-    public List<Product> searchByName(String nameProduct) {
-        return productRepository.searchByName(nameProduct);
+    public boolean delete(int id) {
+        return productRepository.delete(id);
     }
 }
