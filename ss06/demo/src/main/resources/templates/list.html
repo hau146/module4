@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,7 +12,8 @@
 <style>
     body {
         text-decoration: none;
-        color: white;
+        color: black;
+        background: url("https://myblog.com.ng/wp-content/uploads/2020/01/IMG_2117-1.jpg");
     }
 
     button a {
@@ -42,24 +44,53 @@
     a:hover {
         color: black;
     }
+
+    .title-blog {
+        display: flex;
+    }
+
+    .title-blog p {
+        margin: 0 40px;
+    }
+    .title-blog .card-title{
+        margin: 0 75px 5px 1px;
+    }
+    .button-title button{
+        margin: 0 20px;
+    }
 </style>
 <body>
-<h1 style="text-align: center">Danh sách quản lý blog</h1> <br>
+<div>
+    <h1 style="text-align: center; color: black">Danh sách quản lý blog</h1> <br>
+</div>
 
 <h3 style="text-align: center; color: green" th:if="${mess}" th:text="${mess}"></h3>
 
 <br>
 
 <div class="container">
+    <span style="display: flex" class="button-title">
     <button type="button" class="btn btn-dark"><a href="/create">Thêm blog mới</a></button>
+    <button type="button" class="btn btn-dark"><a href="">Blog kinh doanh</a></button>
+    <button type="button" class="btn btn-dark"><a href="">Blog âm nhạc</a></button>
+    <button type="button" class="btn btn-dark"><a href="">Blog game</a></button>
+    </span>
+    <br> <br>
+    <form action="/" method="get">
+        <input name="titleBlog" placeholder="Nhập tên Blog">
+        <button class="btn btn-dark">Tìm</button>
+    </form>
     <br> <br>
 
-    <div th:each="blog:${blogList}">
+    <div style="display: inline-block" th:each="blog:${blogPage}">
         <a th:href="@{/detail/(idBlog=${blog.idBlog})}">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${blog.titleBlog}"></h5>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${blog.typeBlog}"></h6>
+                    <span class="title-blog">
+                        <h5 class="card-title" th:text="${blog.titleBlog}"></h5>
+                         <h6 class="card-subtitle mb-2 text-muted" th:text="${blog.typeBlog}"></h6>
+                    </span>
+                    <p th:text="${blog.formatDateWrite()}"></p>
                     <p class="card-text" th:text="${blog.content}"></p>
                     <br>
                     <button type="button" class="btn btn-dark"><a th:href="@{/update/(idBlog=${blog.idBlog})}">Sửa</a>
@@ -74,8 +105,17 @@
 </div>
 
 
+<div style="margin: 0 120px;">
+    <button th:if="${blogPage.hasPrevious()}" type="button" class="btn btn-dark">
+        <a th:href="@{/(page=${blogPage.number-1})}">Trước</a>
+    </button>
 
+    <span th:text="${blogPage.number+1}"></span>/<span th:text="${blogPage.totalPages}"></span>
 
+    <button th:if="${blogPage.hasNext()}" type="button" class="btn btn-dark">
+        <a  th:href="@{/(page=${blogPage.number+1})}">Sau</a>
+    </button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

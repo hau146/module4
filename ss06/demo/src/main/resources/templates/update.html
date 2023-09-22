@@ -42,6 +42,10 @@
                 <option th:each="typeBlog:${listTypeBlog}" th:text="${typeBlog}" th:value="${typeBlog}"></option>
             </select>
         </div>
+        <div class="mb-3">
+            <label class="form-label">Ngày viết blog</label>
+            <input th:field="*{dateWrite}" type="date" class="form-control">
+        </div>
         <button type="button" class="btn btn-dark btn-sm"><a href="/">Quay lại</a></button>
         <button type="submit" class="btn btn-primary btn-sm">Xác nhận</button>
     </form>

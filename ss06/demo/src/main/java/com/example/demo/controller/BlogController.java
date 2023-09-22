@@ -3,6 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.model.Blog;
 import com.example.demo.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +22,20 @@ public class BlogController {
     public String[] getListTypeBlog(){
         return new String[]{"kinh doanh", "âm nhạc", "game"};
     }
+//    @GetMapping("/")
+//    public String findAll(Model model){
+//        List<Blog> blogList = blogService.findAll();
+//        model.addAttribute("blogList",blogList);
+//        return "list";
+//    }
     @GetMapping("/")
-    public String findAll(Model model){
-        List<Blog> blogList = blogService.findAll();
-        model.addAttribute("blogList",blogList);
+    public String findAll(@RequestParam(defaultValue = "0", required = false) int page,
+                          @RequestParam(defaultValue = "", required = false) String titleBlog,
+                          Model model){
+        Pageable pageable = PageRequest.of(page, 2,Sort.by("titleBlog").descending());
+        Page<Blog> blogPage = blogService.finAll(pageable, titleBlog);
+        model.addAttribute("blogPage",blogPage);
+        model.addAttribute("titleBlog",titleBlog);
         return "list";
     }
     @GetMapping("/create")
