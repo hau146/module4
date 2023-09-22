@@ -16,13 +16,23 @@ public class BlogService implements IBlogService{
     }
 
     @Override
-    public void create(Blog blog) {
-        blogRepository.save(blog);
+    public boolean create(Blog blog) {
+        try {
+            blogRepository.save(blog);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public void update(Blog blog) {
-        blogRepository.save(blog);
+    public boolean update(Blog blog) {
+        try {
+            blogRepository.save(blog);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -31,8 +41,13 @@ public class BlogService implements IBlogService{
     }
 
     @Override
-    public void delete(int id) {
-        Blog blog = findById(id);
-        blogRepository.delete(blog);
+    public boolean delete(int id) {
+        try {
+            Blog blog = findById(id);
+            blogRepository.delete(blog);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
