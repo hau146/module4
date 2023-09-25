@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -35,18 +34,18 @@ public class ProductRepository implements IProductRepository {
     @Transactional
     @Override
     public boolean update(Product product) {
-        try {
-            Product productEntity = finById(product.getId());
+        Product productEntity = finById(product.getId());
+        if (productEntity != null) {
             productEntity.setId(product.getId());
             productEntity.setNameProduct(product.getNameProduct());
             productEntity.setPriceProduct(product.getPriceProduct());
             productEntity.setDescribeProduct(product.getDescribeProduct());
             productEntity.setProducer(product.getProducer());
             entityManager.merge(productEntity);
-        } catch (Exception e) {
+            return true;
+        } else {
             return false;
         }
-        return true;
     }
 
     @Override
@@ -57,12 +56,11 @@ public class ProductRepository implements IProductRepository {
     @Transactional
     @Override
     public boolean delete(int id) {
-        try {
-            Product product = finById(id);
+        Product product = finById(id);
+        if (product != null) {
             entityManager.remove(product);
-        } catch (Exception e) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
