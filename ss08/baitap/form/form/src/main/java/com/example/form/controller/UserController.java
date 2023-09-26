@@ -1,8 +1,7 @@
 package com.example.form.controller;
 
 import com.example.form.model.User;
-import com.example.form.model.UserDto;
-import com.example.form.repository.IUserRepository;
+import com.example.form.dto.UserDto;
 import com.example.form.service.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
