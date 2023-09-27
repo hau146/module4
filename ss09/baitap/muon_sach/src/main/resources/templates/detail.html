@@ -40,7 +40,12 @@
         </div>
 
         <button type="button" class="btn btn-primary btn-sm"><a href="/">Quay lại</a></button>
-        <button type="submit" class="btn btn-dark btn-sm">Mượn sách</button>
+        <span th:if="${book.quantity == 0}">
+            Đã bị thuê hết !
+        </span>
+        <span th:if="${book.quantity > 0}">
+            <button type="submit" class="btn btn-dark btn-sm">Mượn sách</button>
+        </span>
     </form>
     <br>
 </div>

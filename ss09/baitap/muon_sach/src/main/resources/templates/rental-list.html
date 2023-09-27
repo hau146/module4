@@ -6,7 +6,39 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
 </head>
+<style>
+    button a{
+        text-decoration: none;
+        color: white;
+    }
+    button a:hover{
+        color: white;
+    }
+</style>
 <body>
-
+<div>
+    <h1 style="text-align: center; color: black">Danh sách thuê</h1> <br>
+</div>
+<br>
+<div class="container">
+<button type="button" class="btn btn-primary btn-sm"><a href="/">Quay lại</a></button>
+<br> <br>
+<table border="1px" style="border-collapse: collapse" class="table table-striped">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sách đã thuê</th>
+        <th>Mã thuê</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bookCode,loop : ${bookCodeList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${bookCode.book.name}"></td>
+        <td th:text="${bookCode.codeBook}"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
 </body>
 </html>

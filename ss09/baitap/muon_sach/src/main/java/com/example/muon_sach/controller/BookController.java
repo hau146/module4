@@ -28,6 +28,12 @@ public class BookController {
         model.addAttribute("bookList", bookList);
         return "list";
     }
+    @GetMapping("/rental")
+    public String showRentalList(Model model) {
+        List<BookCode> bookCodeList = bookCodeService.findAll();
+        model.addAttribute("bookCodeList", bookCodeList);
+        return "rental-list";
+    }
 
     @GetMapping("/detail")
     public String detail(@RequestParam(name = "id",
@@ -41,7 +47,6 @@ public class BookController {
     @PostMapping("/rent")
     public String rent(@ModelAttribute Book book,
                        RedirectAttributes redirectAttributes) {
-
         book.setQuantity(book.getQuantity() - 1);
         int randomCode = book.randomCodeBook();
         bookCodeService.saveRandomNumber(randomCode, book);
@@ -57,7 +62,7 @@ public class BookController {
     }
 
     @PostMapping("/giveBook")
-    public String create(@RequestParam int codeBook,
+    public String giveBook(@RequestParam int codeBook,
                          RedirectAttributes redirectAttributes) {
         List<BookCode> bookCodeList = bookCodeService.findAll();
         BookCode bookCode = null;
@@ -69,7 +74,7 @@ public class BookController {
                 break;
             }
         }
-        if (code == 0) {
+        if (code == 0 && bookCode == null) {
             redirectAttributes.addFlashAttribute("mess", "Bạn chưa mượn sách nào có mã thuê này cả !");
             return "redirect:/showGiveBook";
         }
