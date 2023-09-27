@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+<style>
+    .book {
+        float: left;
+        margin: 0 75px 25px 1px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        color: black;
+    }
+</style>
+<body>
+<div>
+    <h1 style="text-align: center; color: black">Danh sách quản lý thư viện sách</h1> <br>
+</div>
+<br>
+<h3 style="text-align: center; color: green" th:if="${mess}" th:text="${mess}"></h3>
+<br>
+<button style="margin: 0 25px;" type="button" class="btn btn-primary btn"><a href="/">Xem danh sách thuê</a></button>
+<button type="button" class="btn btn-primary btn"><a href="/showGiveBook">Trả sách</a></button>
+<br><br>
+<div class="container">
+
+    <div th:each="book:${bookList}" class="book">
+        <a th:href="@{/detail/(id=${book.id})}">
+            <div class="card mb-3" style="max-width: 540px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img style="height: 100%"
+                             src="https://tiki.vn/blog/wp-content/uploads/2023/01/tuoi-tre-dang-gia-bao-nhieu-1.png"
+                             class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${book.name}"></h5>
+                            <p class="card-text">Sách là nguồn của cải quy báu của thế giới và là di sản xứng đáng của các thế hệ và các quốc gia.</p>
+                            <p class="card-text"><small class="text-muted"
+                                                        th:text="'Số lượng: ' + ${book.quantity}"></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+</body>
+</html>
