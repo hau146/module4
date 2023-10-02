@@ -26,6 +26,10 @@
     a:hover {
         color: black;
     }
+
+    a.disabled {
+        pointer-events: none;
+    }
 </style>
 <body>
 <br><br>
@@ -48,8 +52,8 @@
             <td th:text="${productMap.key.name}"></td>
             <td th:text="${productMap.key.formatPrice() + ' vnd'}"></td>
             <td>
-                <span th:if="${productMap.value >= 1}">
-                    <a style="font-size: 23px" id="decrease_button"
+                <span>
+                    <a th:class="${productMap.value <= 1 ? 'disabled' : ''}" style="font-size: 23px" id="decrease_button"
                        th:href="@{/minus/(id=${productMap.key.id})}">
                     <i class='bx bx-message-square-minus bx-flip-horizontal'></i>
                     </a>

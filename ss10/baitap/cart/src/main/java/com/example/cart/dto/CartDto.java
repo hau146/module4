@@ -36,9 +36,13 @@ public class CartDto {
             productMap.put(productDto, 1);
         }
     }
+
     public void minusProduct(ProductDto productDto) {
-        int currentValue = productMap.get(productDto);
-        productMap.replace(productDto,currentValue-1);
+        if (productMap.containsKey(productDto)) {
+            int currentValue = productMap.get(productDto);
+            productMap.replace(productDto,currentValue-1);
+        }
+
     }
     public Float countTotalPayment(){
         float payment = 0;
