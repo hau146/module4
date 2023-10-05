@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-public class MusicDto {
+public class MusicDto implements Validator{
     private int id;
     @NotBlank(message = "Tên bài hát không được bỏ trống !")
     @Min(1)
@@ -69,4 +69,13 @@ public class MusicDto {
     }
 
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
+    }
 }
