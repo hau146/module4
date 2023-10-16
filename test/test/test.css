@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.invoice {
+    border: 1px solid;
+    margin: 20px 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-center {
+    text-align: center;
+    color: red;
+    margin: 20px 0 0 250px;
+}
+.header-right{
+    margin: 0 35px;
+}
+
+.company-info {
+    display: flex;
+}
+
+.column {
+    padding-right: 20px;
+}
+
+.table-content tr {
+    border: 1px solid black;
+}
+.table-content th {
+    border: 1px solid black;
+}
+.table-content td {
+    border: 1px solid black;
+}
+.table-content{
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoá đơn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+<div class="invoice">
+    <header>
+        <div class="logo">
+            <img src="%5BPhatNHT%5D%5BHomePage%5D/image/logoplus.png" alt="">
+        </div>
+        <div class="header-center">
+            <h1>HOÁ ĐƠN GIÁ TRỊ GIA TĂNG</h1>
+            <p><em>(VAT INVOICE)</em></p>
+            <p>Bản thể hiện hoá đơn điện tử</p>
+            <p style="color: black">Ngày <em>(Date)</em> tháng <em>(month)</em> năm <em>(year)</em></p>
+        </div>
+        <div class="header-right">
+            <p>Mẫu số <em>(Form)</em>: <b>01GTKT0/001</b></p>
+            <p>Ký hiệu <em>(Series)</em>: <b>AA/20E</b></p>
+            <p>Số <em>(No)</em>: <b style="color: red;font-size: 20px">000000</b></p>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <hr>
+        <section class="company-info">
+            <div class="column">
+                <p>Đơn vị bán hàng <em>(Seller)</em></p>
+                <p>Mã số thuế <em>(Tax code)</em></p>
+                <p>Địa chỉ <em>(Address)</em></p>
+                <p>Điện thoại <em>(Phone)</em></p>
+                <p>Số tài khoản <em>(Acc No.)</em></p>
+            </div>
+            <div class="column">
+                <p>: CÔNG TY TNHH HỆ THỐNG THÔNG TIN FPT</p>
+                <p>: 0104128565</p>
+                <p>: Tầng 22,qưoeqwoiewqoj</p>
+                <p>: 02363668009</p>
+                <p>: 913y913912y39</p>
+            </div>
+        </section>
+        <hr>
+        <section class="customer-info">
+            <div class="column">
+                <p>Họ tên người mua hàng <em>(Buyer)</em></p>
+                <p>Tên đơn vị <em>(Company)</em></p>
+                <p>Mã số thuế <em>(Tax code)</em></p>
+                <p>Địa chỉ <em>(Address)</em></p>
+                <div style="display: flex;">
+                    <p style="padding-right: 200px;">Hình thức thanh toán <em>(Payment method)</em></p>
+                    <p>Số tài khoản <em>(Acc No.)</em></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <table style="width: 100%" class="table-content">
+                <tr>
+                    <th>STT <br>
+                        <em style="color: #888">(No)</em>
+                    </th>
+                    <th>Tên hàng hóa,dịch vụ <br>
+                        <em style="color: #888">(Description)</em>
+                    </th>
+                    <th>Đơn vị tính <br>
+                        <em style="color: #888">(Unit)</em>
+                    </th>
+                    <th>Số lượng <br>
+                        <em style="color: #888">(Quantity)</em>
+                    </th>
+                    <th>Đơn giá <br>
+                        <em style="color: #888">(Price)</em>
+                    </th>
+                    <th>Thành tiền <br>
+                        <em style="color: #888">(Amount)</em>
+                    </th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6=4x5</td>
+                </tr>
+<!--                thêm cột ở đây-->
+            </table>
+            <table style="width: 100%; border: 1px solid">
+                <tr>
+                    <td class="container" colspan="6" style="text-align: right">Cộng tiền hàng:...........</td>
+                </tr>
+                <tr>
+                    <td class="container" colspan="3" style="text-align: left; width: 50%">Thuế suất GTGT:</td>
+                    <td class="container" colspan="3" style="text-align: right; width: 50%">Tiền thuế GTGT:...........</td>
+                </tr>
+                <tr>
+                    <td class="container" colspan="6" style="text-align: right">Tổng cộng tiền thanh toán:...........</td>
+                </tr>
+                <tr style="height: 50px">
+                    <td class="container" colspan="6" style="text-align: left; border: 1px solid">Số tiền viết bằng chữ:    ...........</td>
+                </tr>
+            </table>
+            <br>
+            <table style="width: 100%;">
+                <tr>
+                    <th class="container" colspan="3" style="text-align: center; width: 50%; border: none">Người mua hàng</th>
+                    <th class="container" colspan="3" style="text-align: center; width: 50%; border: none">Người bán hàng <br>
+                        <em style="color: #888">(Đã được ký điện tử)</em>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="container" colspan="3" style="text-align: center; width: 50%; border: none"></th>
+                    <th class="container" colspan="3" style="text-align: center; width: 50%; border: none">
+                        <img src="https://cdn.codegym.vn/wp-content/uploads/2022/06/trang-chu-2-7.jpg" alt="" style="width: 35%">
+                    </th>
+                </tr>
+            </table>
+        </section>
+    </div>
+    <br><br><br>
+    <div style="text-align: center">
+        <h6>Mã tra cứu hóa đơn: Trang tra cứu: </h6>
+        <em style="color: #888; text-align: center">(Cần kiểm tra, đối chiếu khi giao và nhận hóa đơn)</em>
+    </div>
+    <hr>
+    <h5 style="text-align: center">5 chục :)))</h5>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Cambria;
+    background: url("bar1.jpg") no-repeat center/ cover;
+}
+
+.detail-position{
+    border: 1px solid;
+    height: 530px;
+    width: 500px;
+    margin: 70px auto;
+    border-radius: 8px;
+    box-shadow: 5px 25px 40px #000;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    min-height: 50vh;
+}
+
+.detail-position h4{
+    margin: 10px;
+    text-align: center;
+    color: floralwhite;
+}
+
+
+.detail-position p{
+    margin: 8px;
+    font-size: 20px;
+    color: floralwhite;
+    font-family: inherit;
+}
+
+.detail-position i{
+    color: floralwhite;
+}
+

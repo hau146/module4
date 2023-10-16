@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Cambria;
+    background: url("https://images.pexels.com/photos/10905970/pexels-photo-10905970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center/ cover;
+}
+
+.info{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 90vh;
+}
+
+.card{
+    color: floralwhite;
+    margin: 0 22px;
+    box-shadow: 5px 25px 40px #000;
+    backdrop-filter: blur(10px);
+    background: transparent;
+    height: 190px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.85s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.85s;
+}
+
+
+.card-position{
+    margin: 10px 25px -6px 18px;
+    font-size: 19px;
+    font-weight: bold;
+}
+

@@ -1,22 +1,20 @@
 body{
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     font-family: Cambria;
-    background: url("body3.jpg") no-repeat center/ cover;
+    background: url("../login/viansa_winery_jpg.jpeg") no-repeat center/ cover;
 }
 
-.main{
+.form-login{
     width: 470px;
     height: 580px;
     background: red;
     overflow: hidden;
-    background: url("https://danviet.mediacdn.vn/296231569849192448/2022/3/26/louishanselyluvncfi500unsplash-1648312721562-16483127217141308506088.jpg") no-repeat center/ cover;
+    background: url("https://images.pexels.com/photos/3407779/pexels-photo-3407779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center/ cover;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;
+    margin: 50px 50px 50px 500px;
 }
 
 #chk{
@@ -60,7 +58,7 @@ button{
     justify-content: center;
     display: block;
     color: white;
-    background: #580069;
+    background: #8e5124;
     font-size: 1em;
     font-weight: bold;
     margin-top: 20px;
@@ -72,12 +70,12 @@ button{
 }
 
 button:hover{
-    background: #6d44b8;
+    background: #e59c51;
 }
 
 .login{
     height: 500px;
-    background: url("https://topgo.vn/ho-chi-minh/wp-content/uploads/sites/2/2020/01/kasho-club-19-min.jpg") no-repeat center/ cover;
+    background: url("https://images.pexels.com/photos/13149907/pexels-photo-13149907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat center/ cover;
     border-radius: 60% / 10%;
     transform: translateY(-130px);
     transition: .8s ease-in-out;
@@ -99,24 +97,24 @@ button:hover{
     height: 109px;
 }
 
-.main i{
+.form-login i{
     position: absolute;
     display: flex;
     top: 0;
     cursor: pointer;
     right: 102px;
     height: 74%;
-    font-size: 20px;
+    font-size: 17px;
     align-items: center;
     user-select: none;
 }
 
-.main i::before{
+.form-login i::before{
     content: '\f070';
     font-family: fontAwesome;
 }
 
-.main i.hide::before{
+.form-login i.hide::before{
     content: '\f06e';
     font-family: fontAwesome;
 }
